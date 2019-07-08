@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Угадай число</title>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<h1>Игра: угадай число!</h1>
+		</div>
+
+		<div class="app">
+			<p>Правила игры:</p>
+			<p>Компьютер загадывает 4-х значное число, цифры в числе могут повторяться. Задача игрока угадать это число. Если цифра присутствует в загаданном числе, и она стоит на том месте, то компьютер обозначает такую цифру буквой "В". Если цифра присутствует, но она стоит не на том месте, то компьютер обозначает ее буквой "K". Нужно угадать загаданное число за наименьшее число ходов.</p>
+			<div class="goal">
+				<p class="hello">Загаданное число: <span class="num"></span></p>
+			</div>
+
+			<div class="form">
+				<input type="text" id="player"><label for="player"></label>
+				<input type="button" name="ok" id="guess" value="Отправить" onClick="guess ()">
+			</div>
+		</div>
+		<div class="table">
+			<div class="turnsList">
+
+			</div>
+		</div>
+	</div>
+
+  <script src="scripts/game.js"></script>
+</body>
+</html>
