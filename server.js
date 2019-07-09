@@ -1,17 +1,20 @@
 'use strict';
-var http = require('http');
+
 var port = process.env.PORT || 1337;
-var fs = require('fs');
-//var game = require('./scripts/game.js')
 var express = require("express");
 
-var server = http.createServer(function(request, response) {
-  response.writeHead(200, {'Content-Type': 'text/html'});
-  let myReadStream = fs.createReadStream(__dirname + '/index.html', 'utf8');
-  var app = express();
-  app.use(express.static(__dirname));
+const app = express()
 
-  myReadStream.pipe(response);
-});
+app.use('/scripts',express.static('scripts'));
+app.use('/style',express.static('style'));
 
-server.listen(3000, '127.0.0.1');
+app.get('/', (request, response) => {
+response.set('Content-Type', 'text/html');
+response.sendFile('index.ejs', {root: __dirname })
+})
+
+app.listen(port, (err) => {
+if (err) {
+return console.log('something bad happened', err)
+}
+})

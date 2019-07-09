@@ -32,16 +32,24 @@ var check = function (par) {
     }
   }
   if (B == 4) {
-    status = 'Победа!'
+    let status = 'Вы победили!';
+    endGame (status);
   }
 //  endGame();
   WTurn(par, B, K);
-}
+};
 
 var WTurn = function (par, B, K) {
   let table = document.querySelector('.turnsList');
   let newLine = document.createElement('p');
   newLine.innerHTML = '<span class="gussed">' + ' K - ' + K + ', B - ' + B;
   table.appendChild(newLine);
-}
+};
+
+var endGame = function (status){
+  let table = document.querySelector('.turnsList');
+  let newLine = document.createElement('p');
+  newLine.innerHTML = status;
+  table.appendChild(newLine);
+};
 console.log(getNum());
